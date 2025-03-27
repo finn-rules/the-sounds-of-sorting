@@ -62,4 +62,9 @@ public class SortsTests {
     public void testQuickSort() {
         testSort(Sorts::quickSort);
     }
+
+    @Test
+    public void testCocktailShakerSort() {
+        testSort(Sorts::cocktailShakerSort);
+    }
 }

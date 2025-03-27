@@ -4,5 +4,6 @@ Author: _(TODO: insert your name here!)_
 
 ## Resources
 
-*   _(TODO: list your resources here!)_
-*   ...
+*   Raymond Chu and Owen Block - worked on the sorting lab with these two.
+*   Owen Block helped me further with quicksort and mergesort as well as do-while statements (on the lab mainly)
+*   Wikipedia for cocktail shaker sort
