@@ -32,8 +32,52 @@ public class SortsTests {
         };
     }
 
+    public static Integer[] makeBackwardsIntArray() {
+        Integer[] backwards = new Integer[100];
+        int i = 0;
+        for(int j = 100; j > 0; j--) {
+            backwards[i] = j;
+            i++;
+        }
+        return backwards;
+    }
+
+    public static String[] makeStringArray() {
+        return new String[] {
+            "hello", "world", "", " ",
+            "empty string", "colton", "finn",
+            "owen", "saya", "1", "2", "3"
+        };
+    }
+    
+    public static Double[] makeDoubleArray() {
+        return new Double[] {
+            1.0, 3.934, 9.47, 0.01, 0.001, 100.01, 100.001,
+            15.743
+        };
+    }
+
+
     public void testSort(Consumer<Integer[]> func) {
         Integer[] arr = makeTestArray();
+        func.accept(arr);
+        assertTrue(sorted(arr));
+    }
+
+    public void testSortBackwards(Consumer<Integer[]> func) {
+        Integer[] arr = makeBackwardsIntArray();
+        func.accept(arr);
+        assertTrue(sorted(arr));
+    }
+
+    public void testSortStrings(Consumer<String[]> func) {
+        String[] arr = makeStringArray();
+        func.accept(arr);
+        assertTrue(sorted(arr));
+    }
+
+    public void testSortDoubles(Consumer<Double[]> func) {
+        Double[] arr = makeDoubleArray();
         func.accept(arr);
         assertTrue(sorted(arr));
     }
@@ -42,15 +86,60 @@ public class SortsTests {
     public void testBubbleSort() {
         testSort(Sorts::bubbleSort);
     }
+
+    @Test 
+    public void backwardsBubbleSort() {
+        testSortBackwards(Sorts::bubbleSort);
+    }
+
+    @Test 
+    public void bubbleSortStrings() {
+        testSortStrings(Sorts::bubbleSort); 
+    }
+    
+    @Test 
+    public void bubbleSortDoubles() {
+        testSortDoubles(Sorts::bubbleSort); 
+    }
     
     @Test
     public void testInsertionSort() {
         testSort(Sorts::insertionSort);
     }
+
+    @Test 
+    public void backwardsInsertionSort() {
+        testSortBackwards(Sorts::insertionSort);
+    }
+
+    @Test 
+    public void stringInsertionSorts() {
+        testSortStrings(Sorts::insertionSort); 
+    }
+    
+    @Test 
+    public void doubleInsertionSorts() {
+        testSortDoubles(Sorts::insertionSort); 
+    }
     
     @Test
     public void testSelectionSort() {
         testSort(Sorts::selectionSort);
+    }
+
+    @Test 
+    public void backwardsSelectionSort() {
+        testSortBackwards(Sorts::selectionSort);
+    }
+
+    @Test 
+    public void stringSelectionSort() {
+        testSortStrings(Sorts::selectionSort); 
+    }
+    
+    @Test 
+    public void doubleSelectionSort() {
+        testSortDoubles(Sorts::selectionSort); 
     }
 
     @Test
@@ -62,6 +151,22 @@ public class SortsTests {
     public void testQuickSort() {
         testSort(Sorts::quickSort);
     }
+
+    @Test 
+    public void backwardsQuickSort() {
+        testSortBackwards(Sorts::quickSort);
+    }
+
+    @Test 
+    public void stringQuickSort() {
+        testSortStrings(Sorts::quickSort); 
+    }
+    
+    @Test 
+    public void doubleQuickSort() {
+        testSortDoubles(Sorts::quickSort); 
+    }
+
 
     @Test
     public void testCocktailShakerSort() {
