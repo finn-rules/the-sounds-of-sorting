@@ -194,7 +194,52 @@ public class SortsTests {
     public void testEventBubbleSort() {
         Integer[] arr1 = makeTestArray();
         Integer[] arr2 = Arrays.copyOf(arr1, arr1.length);
+        List<SortEvent<Integer>> list = Sorts.bubbleSort(arr2);
+        Sorts.eventSort(arr1, list);
+        assertTrue(Arrays.equals(arr1, arr2));
+    }
+
+    @Test
+    public void testEventSelectionSort() {
+        Integer[] arr1 = makeBackwardsIntArray();
+        Integer[] arr2 = Arrays.copyOf(arr1, arr1.length);
         List<SortEvent<Integer>> list = Sorts.selectionSort(arr2);
+        Sorts.eventSort(arr1, list);
+        assertTrue(Arrays.equals(arr1, arr2));
+    }
+
+    @Test
+    public void testEventInsertionSort() {
+        String[] arr1 = makeStringArray();
+        String[] arr2 = Arrays.copyOf(arr1, arr1.length);
+        List<SortEvent<String>> list = Sorts.insertionSort(arr2);
+        Sorts.eventSort(arr1, list);
+        assertTrue(Arrays.equals(arr1, arr2));
+    }
+
+    @Test
+    public void testEventMergeSort() {
+        Double[] arr1 = makeDoubleArray();
+        Double[] arr2 = Arrays.copyOf(arr1, arr1.length);
+        List<SortEvent<Double>> list = Sorts.mergeSort(arr2);
+        Sorts.eventSort(arr1, list);
+        assertTrue(Arrays.equals(arr1, arr2));
+    }
+
+    @Test
+    public void testEventQuickSort() {
+        Integer[] arr1 = makeBackwardsIntArray();
+        Integer[] arr2 = Arrays.copyOf(arr1, arr1.length);
+        List<SortEvent<Integer>> list = Sorts.quickSort(arr2);
+        Sorts.eventSort(arr1, list);
+        assertTrue(Arrays.equals(arr1, arr2));
+    }
+
+    @Test
+    public void testEventCocktailSort() {
+        Integer[] arr1 = makeBackwardsIntArray();
+        Integer[] arr2 = Arrays.copyOf(arr1, arr1.length);
+        List<SortEvent<Integer>> list = Sorts.cocktailShakerSort(arr2);
         Sorts.eventSort(arr1, list);
         assertTrue(Arrays.equals(arr1, arr2));
     }
