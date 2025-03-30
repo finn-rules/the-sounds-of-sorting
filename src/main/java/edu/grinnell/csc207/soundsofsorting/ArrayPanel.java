@@ -10,7 +10,8 @@ import javax.swing.JPanel;
 public class ArrayPanel extends JPanel {
     @SuppressWarnings("unused")
     private NoteIndices notes;
-   
+    private int width;
+    private int height;
     /**
      * Create a new <code>ArrayPanel</code> with the given notes and dimensions.
      * @param notes the note indices 
@@ -19,11 +20,33 @@ public class ArrayPanel extends JPanel {
      */
     public ArrayPanel(NoteIndices notes, int width, int height) {
         this.notes = notes;
+        this.width = width;
+        this.height = height;
         this.setPreferredSize(new Dimension(width, height));
+    }
+
+    public int MaxIndexValue(Integer[] arr) {
+        int max = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
     }
 
     @Override
     public void paintComponent(Graphics g) {
-        // TODO: fill me in!
+        g.clearRect(0, 0, this.width, this.height);
+        Integer[] noteIndices = notes.getNotes();
+        int maxIndexValue = MaxIndexValue(noteIndices);
+
+        int barWidth = width / noteIndices.length;
+        int barHeight;
+
+        for(int i = 0; i < noteIndices.length * barWidth; i += barWidth) {
+            barHeight = this.height / (maxIndexValue - noteIndices[i]);
+            g.drawRect(i, 0, barWidth, barHeight);
+        }
     }
 }

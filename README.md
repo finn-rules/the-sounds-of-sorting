@@ -8,3 +8,7 @@ Author: _(TODO: insert your name here!)_
 *   Owen Block helped me further with quicksort and mergesort as well as do-while statements (on the lab mainly)
 *   Wikipedia for cocktail shaker sort
 *   Fisher-Yates shuffle algorithm (from project 3)
+*   Graphics Java Library
+*   Java Version 21.0.6
+*   Visual Studio Code
+*   Professor Osera's Lab Instructions
