@@ -1,8 +1,13 @@
 package edu.grinnell.csc207.soundsofsorting;
 
 import java.awt.BorderLayout;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.JFrame;
+
+import edu.grinnell.csc207.soundsofsorting.sortevents.SortEvent;
+import edu.grinnell.csc207.soundsofsorting.sorts.Sorts;
 
 /**
  * The SortingVisualizer driver.
@@ -17,7 +22,13 @@ public class SortingVisualizer {
      * @param args the command-line arguments
      * @throws InterruptedException
      */
-    public static void main(String[] args) throws InterruptedException {        
+    public static void main(String[] args) throws InterruptedException {  
+        Integer[] arr1 = {5, 4, 3, 2, 1};
+        Integer[] arr2 = Arrays.copyOf(arr1, arr1.length);
+        List<SortEvent<Integer>> list = Sorts.bubbleSort(arr2);
+        Sorts.eventSort(arr1, list); 
+        System.out.println(Arrays.toString(arr1));
+        System.out.println(Arrays.toString(arr2));   
         JFrame frame = new JFrame();
         frame.getContentPane().setLayout(new BorderLayout());
         NoteIndices notes = new NoteIndices(0);

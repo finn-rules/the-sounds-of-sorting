@@ -2,10 +2,13 @@ package edu.grinnell.csc207.soundsofsorting;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Consumer;
 
 import org.junit.jupiter.api.Test;
 
+import edu.grinnell.csc207.soundsofsorting.sortevents.SortEvent;
 import edu.grinnell.csc207.soundsofsorting.sorts.Sorts;
 
 public class SortsTests {
@@ -56,7 +59,6 @@ public class SortsTests {
             15.743
         };
     }
-
 
     public void testSort(Consumer<Integer[]> func) {
         Integer[] arr = makeTestArray();
@@ -146,6 +148,21 @@ public class SortsTests {
     public void testMergeSort() {
         testSort(Sorts::mergeSort);
     }
+
+    @Test
+    public void testMergeSortBackwards() {
+        testSortBackwards(Sorts::mergeSort);
+    }
+
+    @Test
+    public void stringMergeSort() {
+        testSortStrings(Sorts::mergeSort);
+    }
+
+    @Test
+    public void doubleMergeSort() {
+        testSortDoubles(Sorts::mergeSort);
+    }
     
     @Test
     public void testQuickSort() {
@@ -171,5 +188,14 @@ public class SortsTests {
     @Test
     public void testCocktailShakerSort() {
         testSort(Sorts::cocktailShakerSort);
+    }
+
+    @Test
+    public void testEventBubbleSort() {
+        Integer[] arr1 = makeTestArray();
+        Integer[] arr2 = Arrays.copyOf(arr1, arr1.length);
+        List<SortEvent<Integer>> list = Sorts.selectionSort(arr2);
+        Sorts.eventSort(arr1, list);
+        assertTrue(Arrays.equals(arr1, arr2));
     }
 }
