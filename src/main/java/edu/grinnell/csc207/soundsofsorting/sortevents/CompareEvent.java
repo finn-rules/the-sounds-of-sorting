@@ -16,14 +16,26 @@ public class CompareEvent<T> implements SortEvent<T> {
         indices.add(second);
     }
 
+    /**
+     * apply: apply a compare event.
+     * @param arr the array to apply the event to
+     */
     public void apply(T[] arr) { 
         arr[0] = arr[0];
     }
 
+    /**
+     * getAffectedIndices: get the indices affected by this event.
+     * @return a list of the indices affected by this event
+     */
     public List<Integer> getAffectedIndices() {
         return indices;
     }
 
+    /**
+     * isEmphasized: check if this event is emphasized.
+     * @return whether the event was emphasized or not
+     */
     public boolean isEmphasized() {
         return false;
     }

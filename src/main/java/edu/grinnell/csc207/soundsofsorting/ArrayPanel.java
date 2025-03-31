@@ -30,6 +30,12 @@ public class ArrayPanel extends JPanel {
         this.setPreferredSize(new Dimension(width, height));
     }
 
+    /**
+     * Find the maximum value in an array of integers.
+     * 
+     * @param arr an array of integers
+     * @return the maximum value in this array
+     */
     public int MaxIndexValue(Integer[] arr) {
         int max = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -41,6 +47,11 @@ public class ArrayPanel extends JPanel {
     }
 
     @Override
+    /**
+     * Paint the component.
+     * 
+     * @param g the object's graphics
+     */
     public void paintComponent(Graphics g) {
         g.clearRect(0, 0, this.width, this.height);
         Integer[] noteIndices = notes.getNotes();

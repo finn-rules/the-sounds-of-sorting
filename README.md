@@ -9,7 +9,7 @@ Author: Finn Rowles
 *   Colton Benson helped me understand the directions for PT3
 *   Wikipedia for cocktail shaker sort
 *   Fisher-Yates shuffle algorithm (from project 3)
-*   Graphics Java Library
+*   Graphics and Color Java Libraries (Oracle)
 *   Java Version 21.0.6
 *   Visual Studio Code
 *   Professor Osera's Lab Instructions
