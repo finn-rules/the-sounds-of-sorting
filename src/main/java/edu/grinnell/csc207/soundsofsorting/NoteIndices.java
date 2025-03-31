@@ -8,7 +8,6 @@ import java.util.Collections;
  * in the program.
  */
 public class NoteIndices {
-
     Integer[] indices;
 
     boolean[] highlight;
@@ -24,7 +23,7 @@ public class NoteIndices {
     }
 
     /*
-     * A fisher-yates shuffle, which shuffles the array randomly.
+     * A Fisher-Yates shuffle, which shuffles the array randomly.
      * 
      * @param arr : an array of integers (indices) to be shuffled
      */
@@ -45,6 +44,8 @@ public class NoteIndices {
      * @param n the size of the scale object that these indices map into
      */
     public void initializeAndShuffle(int n) {
+        indices = new Integer[n];
+        highlight = new boolean[n];
         for (int i = 0; i < n; i++) {
             this.indices[i] = i;
         }

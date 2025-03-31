@@ -1,8 +1,11 @@
 package edu.grinnell.csc207.soundsofsorting;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
+
+import java.awt.Color;
 
 /**
  * A drawing panel for visualizing the contents of a @NoteIndices object.
@@ -12,10 +15,12 @@ public class ArrayPanel extends JPanel {
     private NoteIndices notes;
     private int width;
     private int height;
+
     /**
      * Create a new <code>ArrayPanel</code> with the given notes and dimensions.
-     * @param notes the note indices 
-     * @param width the width of the panel
+     * 
+     * @param notes  the note indices
+     * @param width  the width of the panel
      * @param height the height of the panel
      */
     public ArrayPanel(NoteIndices notes, int width, int height) {
@@ -43,10 +48,22 @@ public class ArrayPanel extends JPanel {
 
         int barWidth = width / noteIndices.length;
         int barHeight;
+        int barProp = this.height / maxIndexValue;
 
-        for(int i = 0; i < noteIndices.length * barWidth; i += barWidth) {
-            barHeight = this.height / (maxIndexValue - noteIndices[i]);
-            g.drawRect(i, 0, barWidth, barHeight);
+        for (int i = 0; i < noteIndices.length; i++) {
+            /*
+             * System.out.println("Indices length: " + noteIndices.length);
+             * System.out.println("barWidth: " + barWidth);
+             * System.out.println("i: " + i);
+             * System.out.println("End condition: " + noteIndices.length * barWidth);
+             */
+            barHeight = barProp * noteIndices[i] + barProp;
+            Color c = new Color(barHeight / 2, 20, 20);
+            g.setColor(c);
+            g.fillRect(i * barWidth, this.height - barHeight, barWidth, barHeight);
+            g.setColor(Color.BLACK);
+            g.drawRect(i * barWidth, this.height - barHeight, barWidth, barHeight);
         }
+        return;
     }
 }
