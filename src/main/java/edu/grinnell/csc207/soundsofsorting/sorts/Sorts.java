@@ -203,13 +203,15 @@ public class Sorts {
 
         while (true) {
             do {
-                events.add(new CompareEvent<>(i, hi));
                 i++;
+                if (i > hi) break;
+                events.add(new CompareEvent<>(i, hi));
             } while (arr[i].compareTo(midValue) < 0 && i <= hi);
 
             do {
-                events.add(new CompareEvent<>(j, lo));
                 j--;
+                if(j < lo) break;
+                events.add(new CompareEvent<>(j, lo));
             } while (arr[j].compareTo(midValue) > 0 && j >= lo);
 
             if (i >= j) {

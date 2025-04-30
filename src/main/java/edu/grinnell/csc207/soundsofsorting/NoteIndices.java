@@ -61,6 +61,11 @@ public class NoteIndices {
         return indices;
     }
 
+    /** @return the indices of this NoteIndices object */
+    public boolean[] getHighlights() {
+        return highlight;
+    }
+
     /**
      * Highlights the given index of the note array
      * 

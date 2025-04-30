@@ -5,6 +5,8 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import com.vaadin.client.debug.internal.Highlight;
+
 import java.awt.Color;
 
 /**
@@ -62,19 +64,19 @@ public class ArrayPanel extends JPanel {
         int barProp = this.height / maxIndexValue;
 
         for (int i = 0; i < noteIndices.length; i++) {
-            /*
-             * System.out.println("Indices length: " + noteIndices.length);
-             * System.out.println("barWidth: " + barWidth);
-             * System.out.println("i: " + i);
-             * System.out.println("End condition: " + noteIndices.length * barWidth);
-             */
             barHeight = barProp * noteIndices[i] + barProp;
             Color c = new Color(barHeight / 2, 20, 20);
+            if (notes.isHighlighted(i)) {
+                c = new Color(0, 0, 150);
+            }
+            System.out.println("Highlighted:" + notes.isHighlighted(i));
             g.setColor(c);
             g.fillRect(i * barWidth, this.height - barHeight, barWidth, barHeight);
             g.setColor(Color.BLACK);
             g.drawRect(i * barWidth, this.height - barHeight, barWidth, barHeight);
         }
+        notes.clearAllHighlighted();
+        System.out.println("Cleared all highlighted");
         return;
     }
 }

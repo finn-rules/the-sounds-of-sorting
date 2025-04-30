@@ -2,6 +2,7 @@ package edu.grinnell.csc207.soundsofsorting;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -145,24 +146,14 @@ public class ControlPanel extends JPanel {
                     return;
                 }
                 isSorting = true;
-
-                // TODO: fill me in!
-                // 1. Create the sorting events list
-                // 2. Add in the compare events to the end of the list ** ??? idk what this
-                // means **
+                panel.repaint();
 
                 Integer[] dupes = new Integer[notes.getNotes().length];
                 for (int i = 0; i < dupes.length; i++) {
                     dupes[i] = notes.getNotes()[i];
                 }
-                /*
-                 * for (int i = 0; i < dupes.length; i++) {
-                 * System.out.print(dupes[i] + " ");
-                 * }
-                 * 
-                 * System.out.println();
-                 */
-                List<SortEvent<Integer>> events = generateEvents(sorts.getSelectedItem().toString(), notes.getNotes());
+                List<SortEvent<Integer>> events = generateEvents(sorts.getSelectedItem().toString(),
+                        Arrays.copyOf(notes.getNotes(), notes.getNotes().length));
 
                 // NOTE: The Timer class repetitively invokes a method at a
                 // fixed interval. Here we are specifying that method
@@ -185,15 +176,13 @@ public class ControlPanel extends JPanel {
                             // affected indices logged in the event.
                             // 4. Highlight those affected indices.
                             e.apply(notes.getNotes());
-                            /*
-                             * for (int i = 0; i < dupes.length; i++) {
-                             * System.out.print(dupes[i] + " ");
-                             * }
-                             * System.out.println();
-                             */
                             for (int i = 0; i < e.getAffectedIndices().size(); i++) {
-                                scale.playNote(i, notes.isHighlighted(i));
-                                notes.highlightNote(i);
+                                scale.playNote(e.getAffectedIndices().get(0),
+                                        notes.isHighlighted(e.getAffectedIndices().get(0)));
+                                scale.playNote(e.getAffectedIndices().get(1),
+                                        notes.isHighlighted(e.getAffectedIndices().get(1)));
+                                notes.highlightNote(e.getAffectedIndices().get(0));
+                                notes.highlightNote(e.getAffectedIndices().get(1));
                             }
                             panel.repaint();
                         } else {
