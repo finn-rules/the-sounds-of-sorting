@@ -5,8 +5,6 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import com.vaadin.client.debug.internal.Highlight;
-
 import java.awt.Color;
 
 /**
@@ -38,7 +36,7 @@ public class ArrayPanel extends JPanel {
      * @param arr an array of integers
      * @return the maximum value in this array
      */
-    public int MaxIndexValue(Integer[] arr) {
+    public int maxIndexValue(Integer[] arr) {
         int max = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > max) {
@@ -48,16 +46,16 @@ public class ArrayPanel extends JPanel {
         return max;
     }
 
-    @Override
     /**
-     * Paint the component.
+     * paintComponent : paints the panel, and note bars.
      * 
-     * @param g the object's graphics
+     * @param g the graphics panel
      */
+    @Override
     public void paintComponent(Graphics g) {
         g.clearRect(0, 0, this.width, this.height);
         Integer[] noteIndices = notes.getNotes();
-        int maxIndexValue = MaxIndexValue(noteIndices);
+        int maxIndexValue = maxIndexValue(noteIndices);
 
         int barWidth = width / noteIndices.length;
         int barHeight;
@@ -69,14 +67,12 @@ public class ArrayPanel extends JPanel {
             if (notes.isHighlighted(i)) {
                 c = new Color(0, 0, 150);
             }
-            System.out.println("Highlighted:" + notes.isHighlighted(i));
             g.setColor(c);
             g.fillRect(i * barWidth, this.height - barHeight, barWidth, barHeight);
             g.setColor(Color.BLACK);
             g.drawRect(i * barWidth, this.height - barHeight, barWidth, barHeight);
         }
         notes.clearAllHighlighted();
-        System.out.println("Cleared all highlighted");
         return;
     }
 }

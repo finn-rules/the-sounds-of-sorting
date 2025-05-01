@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
-import edu.grinnell.csc207.soundsofsorting.sortevents.CompareEvent;
 import edu.grinnell.csc207.soundsofsorting.sortevents.SortEvent;
 import edu.grinnell.csc207.soundsofsorting.sorts.Sorts;
 
@@ -24,14 +23,16 @@ public class ControlPanel extends JPanel {
     private static final int FPS = 20;
 
     /** The MIDI note values for the B minor pentatonic scale */
-    public static final int[] bMinorPentatonicValues = new int[] { 46, 49, 51, 53, 56, 58, 61, 63, 65, 68, 70, 73, 75,
-            78, 82, 85, 87 };
+    public static final int[] bMinorPentatonicValues = new int[] {46, 49, 51, 53,
+        56, 58, 61, 63, 65, 68, 70, 73, 75,
+        78, 82, 85, 87};
 
     /** The MIDI note values for the chromatic scale */
-    public static final int[] chromaticValues = new int[] { 40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
-            50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
-            60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
-            70, 71, 72, 73, 74, 75, 76, 77, 78, 79 };
+    public static final int[] chromaticValues = new int[] {40, 41, 42, 43, 44, 
+        45, 46, 47, 48, 49,
+        50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
+        60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
+        70, 71, 72, 73, 74, 75, 76, 77, 78, 79};
 
     /**
      * Generates a list of sorting events by sorting the given array using the
@@ -102,19 +103,19 @@ public class ControlPanel extends JPanel {
 
         ///// The sort selection combo box /////
         JComboBox<String> sorts = new JComboBox<>(new String[] {
-                "Selection",
-                "Insertion",
-                "Bubble",
-                "Merge",
-                "Quick",
-                "Cocktail Shaker"
+            "Selection",
+            "Insertion",
+            "Bubble",
+            "Merge",
+            "Quick",
+            "Cocktail Shaker"
         });
         add(sorts);
 
         ///// The scale selection combo box /////
         JComboBox<String> scales = new JComboBox<>(new String[] {
-                "Pentatonic",
-                "Chromatic"
+            "Pentatonic",
+            "Chromatic"
         });
         add(scales);
 
@@ -164,10 +165,10 @@ public class ControlPanel extends JPanel {
                 timer.schedule(new TimerTask() {
                     private int index = 0;
 
-                    @Override
                     /**
-                     * run: the method which applies a sort event and plays a note from the scale
+                     * run : runs an iteration of the sort and visualizes it
                      */
+                    @Override
                     public void run() {
                         if (index < events.size()) {
                             SortEvent<Integer> e = events.get(index++);

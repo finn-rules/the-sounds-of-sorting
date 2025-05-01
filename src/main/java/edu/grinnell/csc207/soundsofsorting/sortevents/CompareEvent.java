@@ -10,6 +10,11 @@ import java.util.List;
 public class CompareEvent<T> implements SortEvent<T> {
     private List<Integer> indices;
 
+    /**
+     * Constuct a new comparEvent
+     * @param first : first index
+     * @param second : second index
+     */
     public CompareEvent(int first, int second) {
         indices = new ArrayList<>();
         indices.add(first);

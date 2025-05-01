@@ -1,13 +1,8 @@
 package edu.grinnell.csc207.soundsofsorting;
 
 import java.awt.BorderLayout;
-import java.util.Arrays;
-import java.util.List;
 
 import javax.swing.JFrame;
-
-import edu.grinnell.csc207.soundsofsorting.sortevents.SortEvent;
-import edu.grinnell.csc207.soundsofsorting.sorts.Sorts;
 
 /**
  * The SortingVisualizer driver.

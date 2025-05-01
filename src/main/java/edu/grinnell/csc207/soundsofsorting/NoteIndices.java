@@ -1,7 +1,5 @@
 package edu.grinnell.csc207.soundsofsorting;
 
-import java.util.Collections;
-
 /**
  * A collection of indices into a Scale object.
  * These indices are the subject of the various sorting algorithms
@@ -22,10 +20,10 @@ public class NoteIndices {
         highlight = new boolean[n];
     }
 
-    /*
-     * A Fisher-Yates shuffle, which shuffles the array randomly.
+    /**
+     * shuffle : randomly shuffle an array of Integers.
      * 
-     * @param arr : an array of integers (indices) to be shuffled
+     * @param arr : an array of Ints to be shuffled.
      */
     public static void shuffle(Integer[] arr) {
         for (int i = arr.length - 1; i >= 0; i--) {
