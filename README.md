@@ -1,6 +1,51 @@
-# CSC 207: The Sounds of Sorting
+# CSC 207: The Sounds of Sorting REDO
 
 Author: Finn Rowles
+
+## REDO DETAILS:
+
+Feedback receieved:
+While your UI is renders with the bars, the sorting does not take place correctly. The bars are not in sorted order at the end of the sort. 
+For an E, you need to 
+1) fix your sorting such that the bars are sorted in the correct order.
+2) fix your style violations (run "mvn checkstyle:check")
+
+1) Done : my sorts are in correct order, highlighting and audio works as a bonus
+2) running mvn checkstyle:check gives 0 checkstyle violations
+mvn checkstyle:check
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< edu.grinnell.csc207:SortingVisualizer >----------------
+[INFO] Building SortingVisualizer 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.6.0:check (default-cli) @ SortingVisualizer ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.110 s
+[INFO] Finished at: 2025-04-30T19:28:58-05:00
+[INFO] ------------------------------------------------------------------------
+rowlesfi@forsythe:the-sounds-of-sorting-1$ mvn checkstyle:check
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< edu.grinnell.csc207:SortingVisualizer >----------------
+[INFO] Building SortingVisualizer 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-checkstyle-plugin:3.6.0:check (default-cli) @ SortingVisualizer ---
+[INFO] Starting audit...
+Audit done.
+[INFO] You have 0 Checkstyle violations.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.895 s
+[INFO] Finished at: 2025-04-30T19:40:30-05:00
+[INFO] ------------------------------------------------------------------------
 
 ## Resources
 
@@ -13,6 +58,7 @@ Author: Finn Rowles
 *   Java Version 21.0.6
 *   Visual Studio Code
 *   Professor Osera's Lab Instructions
+*   Owen Block to help me better understand highlighting at a high level
 
 ## Git Commits
 
@@ -25,3 +71,14 @@ Author: Finn Rowles
 * more updates, started part 2, wrote tests, : 9a045100dd2c60f61f62ef604dc92ceedfd78157
 * Implemented some sorting methods : 90e015a5a7495c654ba211814fed6a4baf05868a
 
+commit 0450d4d528ae0fd5911a55839e17b28d76ae573f (HEAD -> main, origin/main, origin/HEAD)
+Author: finn-rules <finn.rowles@gmail.com>
+Date:   Wed Apr 30 19:36:35 2025 -0500
+
+    Finish the project
+
+commit 012f801b138694d15808e7bbed50a8b9469bfff2
+Author: finn-rules <finn.rowles@gmail.com>
+Date:   Wed Apr 30 12:45:49 2025 -0500
+
+    Fixed highlight/sound, proper order of sorting
